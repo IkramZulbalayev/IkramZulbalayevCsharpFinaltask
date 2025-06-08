@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordScanner", "WordScanner\WordScanner.csproj", "{B9EB882A-672E-48FD-A9B9-D510A62662FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScannerA", "ScannerA\ScannerA.csproj", "{9B924D32-38C6-417F-AEDB-2F716634737D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Master", "Master\Master.csproj", "{C748743B-D879-446D-B719-584DF3098C38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9EB882A-672E-48FD-A9B9-D510A62662FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9EB882A-672E-48FD-A9B9-D510A62662FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9EB882A-672E-48FD-A9B9-D510A62662FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EB882A-672E-48FD-A9B9-D510A62662FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B924D32-38C6-417F-AEDB-2F716634737D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B924D32-38C6-417F-AEDB-2F716634737D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B924D32-38C6-417F-AEDB-2F716634737D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B924D32-38C6-417F-AEDB-2F716634737D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C748743B-D879-446D-B719-584DF3098C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C748743B-D879-446D-B719-584DF3098C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C748743B-D879-446D-B719-584DF3098C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C748743B-D879-446D-B719-584DF3098C38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69F41E8A-7B4F-4572-97BC-8C70D8401BA4}
+	EndGlobalSection
+EndGlobal
