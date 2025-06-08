@@ -14,6 +14,8 @@ class ScannerA
 
     static void Main()
     {
+        // Try to make the program run on CPU core 1 to improve performance
+        Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)(1 << 1);
 
         Console.Write("Enter directory path: ");
         string? inputPath = Console.ReadLine();

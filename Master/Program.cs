@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
 using System.Runtime.Intrinsics.X86;
@@ -12,6 +13,9 @@ class Master
 
     static void Main()
     {
+        //Set the process to run only on CPU core 0
+        Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)(1 << 0);
+
         // Using MultiThreading for Two Pipes
         Thread scannerAThread = new(() => ListenToScanner("pipe_scannerA"));
         Thread scannerBThread = new(() => ListenToScanner("pipe_scannerB"));

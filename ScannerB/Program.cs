@@ -14,6 +14,9 @@ class ScannerB
 
     static void Main()
     {
+        // Try to make the program run on CPU core 2 to improve performance
+        Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)(1 << 2);
+
         //Asking to enter the Directory
         Console.Write("Enter directory path: ");
         string? inputPath = Console.ReadLine();
