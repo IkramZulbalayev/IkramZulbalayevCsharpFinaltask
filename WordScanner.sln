@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScannerA", "ScannerA\Scanne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Master", "Master\Master.csproj", "{C748743B-D879-446D-B719-584DF3098C38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScannerB", "ScannerB\ScannerB.csproj", "{15B8376B-A25C-4B14-AE12-735F2E882613}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C748743B-D879-446D-B719-584DF3098C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C748743B-D879-446D-B719-584DF3098C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C748743B-D879-446D-B719-584DF3098C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B8376B-A25C-4B14-AE12-735F2E882613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B8376B-A25C-4B14-AE12-735F2E882613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B8376B-A25C-4B14-AE12-735F2E882613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B8376B-A25C-4B14-AE12-735F2E882613}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

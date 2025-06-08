@@ -31,7 +31,10 @@ class ScannerB
         var scannerBFiles = allFiles.Where((file, index) => index % 2 != 0);
 
         foreach (var file in scannerBFiles)
+        {
+            Console.WriteLine($"[ScannerB] Queued file: {Path.GetFileName(file)}");
             fileQueue.Enqueue(file);
+        }
 
         // Start reading and sending threads
         Thread readerThread = new(ReadFiles);

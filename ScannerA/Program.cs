@@ -14,7 +14,6 @@ class ScannerA
 
     static void Main()
     {
-        // Try to make the program run on CPU core 1 to improve performance
         Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)(1 << 1);
 
         Console.Write("Enter directory path: ");
@@ -30,7 +29,10 @@ class ScannerA
         var scannerAFiles = allFiles.Where((file, index) => index % 2 == 0);
 
         foreach (var file in scannerAFiles)
+        {
+            Console.WriteLine($"[ScannerA] Queued file: {Path.GetFileName(file)}");
             fileQueue.Enqueue(file);
+        }
 
         // Start reading and sending threads
         Thread readerThread = new(ReadFiles);
