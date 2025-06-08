@@ -2,7 +2,9 @@
 using System.Collections.Concurrent;
 using System.IO;
 using System.IO.Pipes;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 class Master
 {
@@ -10,21 +12,36 @@ class Master
 
     static void Main()
     {
-        // Firstly With Just One Pipe
-        ListenToScanner("pipe_scannerA");  
+        // Using MultiThreading for Two Pipes
+        Thread scannerAThread = new(() => ListenToScanner("pipe_scannerA"));
+        Thread scannerBThread = new(() => ListenToScanner("pipe_scannerB"));
+
+        scannerAThread.Start();
+        scannerBThread.Start();
+
+        scannerAThread.Join();
+        scannerBThread.Join();
 
         Console.WriteLine("\nFinal Aggregated Result:");
         foreach (var entry in globalIndex)
+        {
             Console.WriteLine($"{entry.Key}:{entry.Value}");
+        }
+            
     }
 
     static void ListenToScanner(string pipeName)
     {
+        // Create a named pipe server to listen for incoming connections from the scanner
         using var pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.In);
+
         Console.WriteLine("[Master] Waiting for scanner connection on " + pipeName + "...");
+
+        // Wait for the scanner to connect to this named pipe
         pipeServer.WaitForConnection();
         Console.WriteLine("[Master] Connected to scanner on " + pipeName + ".");
 
+        // Use a StreamReader to read text data from the pipe
         using var reader = new StreamReader(pipeServer, Encoding.UTF8);
         string? line;
         while ((line = reader.ReadLine()) != null)
@@ -36,14 +53,13 @@ class Master
             if (parts.Length != 3)
                 continue;
 
+            // Construct a unique key using filename and word
             string key = $"{parts[0]}:{parts[1]}";
             if (!int.TryParse(parts[2], out int count))
                 continue;
 
-            if (globalIndex.ContainsKey(key))
-                globalIndex[key] += count;
-            else
-                globalIndex[key] = count;
+            globalIndex.AddOrUpdate(key, count, (k, existingCount) => existingCount + count);
+
         }
 
         Console.WriteLine("[Master] Scanner on " + pipeName + " finished.");
